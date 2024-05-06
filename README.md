@@ -28,7 +28,7 @@ To start using clamav-rest-api on docker environment follow the steps below:
 ```
 docker run -d -p 8080:8080 \
 -e NODE_ENV=production \
--e APP_PORT=8080 \
+-e PORT=8080 \
 -e APP_FORM_KEY=FILES \
 -e CLAMD_IP=192.168.10.10 \
 -e APP_MAX_FILE_SIZE=26214400 \
@@ -69,7 +69,7 @@ npm start
 Here is a short description of those parameters:
 
 - `NODE_ENV` - describe application environment (production, development, test, etc.)
-- `APP_PORT` - port number on which `clamav-rest-api` will listen to requests
+- `PORT` - port number on which `clamav-rest-api` will listen to requests
 - `APP_FORM_KEY` - form key (element name) used when uploading files to scan (see [examples directory](examples/)). `clamav-rest-api` will only accept files uploaded with this form key.
 - `APP_MORGAN_LOG_FORMAT` - log format used by `clamav-rest-api` to display information about requests. More infor can be found [here](https://github.com/expressjs/morgan#predefined-formats)
 - `APP_MAX_FILE_SIZE` - max size (in bytes) of **single** file which will be accepted by `clamav-rest-api`. You have to also take care of `MaxScanSize`, `MaxFileSize`, etc. in your `clamd.conf` file.
@@ -83,7 +83,7 @@ As stated before you can set all those parameters by setting environment variabl
 _Linux/MacOSX_
 
 ```
-export APP_PORT=8080
+export PORT=8080
 export NODE_ENV=production
 export CLAMD_IP=localhost
 export APP_FORM_KEY=FILES
@@ -93,7 +93,7 @@ npm start
 or
 
 ```
-APP_PORT=8080 NODE_ENV=production CLAMD_IP=clamavd CLAMD_IP=localhost APP_FORM_KEY=FILES npm start
+PORT=8080 NODE_ENV=production CLAMD_IP=clamavd CLAMD_IP=localhost APP_FORM_KEY=FILES npm start
 ```
 
 #### API endpoints

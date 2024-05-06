@@ -13,7 +13,7 @@ async function makeServer(cfg) {
   try {
     const newAvConfig = Object.assign({}, cfg.avConfig);
     const clamscan = await new NodeClam().init(newAvConfig);
-    const PORT = process.env.APP_PORT || 3000;
+    const PORT = process.env.PORT || 3000;
     const app = express();
 
     app.use(cors());
